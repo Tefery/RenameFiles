@@ -33,9 +33,9 @@ public class Main {
 		else {
 			System.out.println("Falta argumento para indicar le tipo de archivo:");
 			System.out.println("    \\smash - DLC's de smash brosh.");
-			System.out.println("    \\dlc - DLC's de smash brosh.");
-			System.out.println("    \\m - Musica en formato MP3.");
-			System.out.println("    \\mp3 - Musica en formato MP3.");
+			System.out.println("    \\dlc   - DLC's de smash brosh.");
+			System.out.println("    \\m     - Musica en formato MP3.");
+			System.out.println("    \\mp3   - Musica en formato MP3.");
 		}
 	}
 
