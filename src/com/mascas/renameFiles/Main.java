@@ -1,4 +1,4 @@
-package com.mascas.renameSmashDLCs;
+package com.mascas.renameFiles;
 
 import java.io.File;
 import java.util.Arrays;
