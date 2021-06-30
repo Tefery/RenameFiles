@@ -10,14 +10,16 @@ public class Main {
 	private static final String KBPS = " (320 kbps)";
 	private static final String KBPS2 = "(320 kbps)";
 	private static final String GUION = "-";
-	private static final String DOT_MP3 = "mp3";
+	private static final String GUION2 = "–";
+	private static final String PUNTOYCOMA = ";";
+	private static final String DOT_MP3 = ".mp3";
 
 	public static void main(String[] args) {
 		File[] files = new File(args[0]).listFiles();
 
 		boolean isSmashDLC = Arrays.stream(args).anyMatch(x -> x.equalsIgnoreCase("\\smash") || x.equalsIgnoreCase("\\dlc"));
 		boolean isMp3 = Arrays.stream(args).anyMatch(x -> x.equalsIgnoreCase("\\m") || x.equalsIgnoreCase("\\mp3"));
-		boolean rename = Arrays.stream(args).anyMatch(x -> x.equalsIgnoreCase("\\r") || x.equalsIgnoreCase("\\rename"));
+		boolean rename = Arrays.stream(args).anyMatch(x -> x.equalsIgnoreCase("\\r") || x.equalsIgnoreCase("\\rename")) || true;
 
 		if (rename)
 			System.out.println("Procediendo al renombrado de los ficheros ubicados en \"" + args[0] + "\"\n");
@@ -56,26 +58,35 @@ public class Main {
 			name = name.replace("¿", "");
 			name = name.replace("?", "");
 			name = name.replace("_", "");
-			if (name.contains(GUION)) {
-				asd = name.split(GUION);
-				name = asd[1];
-				for (int i = 2; i < asd.length; i++) { 
-					name += asd[i];
-				}
-			}
+			name = eliminaGrupoPorSeparador(GUION, name);
+			name = eliminaGrupoPorSeparador(GUION2, name);
+			name = eliminaGrupoPorSeparador(PUNTOYCOMA, name);
+
 			asd = name.split(DOT_MP3);
 			name = asd[0];
 			for (int i = 1; i < asd.length - 1; i++) {
 				name += asd[i];
 			}
-			name = name.strip();
+			name = name.trim();
 			name = name.replaceAll("^\\d\\d? ", "");
-			name = name.strip();
+			name = name.trim();
 			name += DOT_MP3;
 			tempFile = new File(file.getParent() + File.separator + name);
 			System.out.println(file.getName() + FLECHA + tempFile.getName());
 			if (rename) file.renameTo(tempFile);
 		}
+	}
+
+	public static String eliminaGrupoPorSeparador(String separador, String name) {
+		if (name.contains(separador)) {
+//				asd = name.split(separador);
+//				name = asd[1];
+//				for (int i = 2; i < asd.length; i++) {
+//					name += asd[i];
+//				}
+		}
+
+		return name;
 	}
 
 	public static void renameSmashDLC(File[] files, boolean rename) {
