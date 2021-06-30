@@ -19,7 +19,7 @@ public class Main {
 
 		boolean isSmashDLC = Arrays.stream(args).anyMatch(x -> x.equalsIgnoreCase("\\smash") || x.equalsIgnoreCase("\\dlc"));
 		boolean isMp3 = Arrays.stream(args).anyMatch(x -> x.equalsIgnoreCase("\\m") || x.equalsIgnoreCase("\\mp3"));
-		boolean rename = Arrays.stream(args).anyMatch(x -> x.equalsIgnoreCase("\\r") || x.equalsIgnoreCase("\\rename")) || true;
+		boolean rename = Arrays.stream(args).anyMatch(x -> x.equalsIgnoreCase("\\r") || x.equalsIgnoreCase("\\rename"));
 
 		if (rename)
 			System.out.println("Procediendo al renombrado de los ficheros ubicados en \"" + args[0] + "\"\n");
