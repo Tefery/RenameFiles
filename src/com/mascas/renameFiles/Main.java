@@ -79,11 +79,11 @@ public class Main {
 
 	public static String eliminaGrupoPorSeparador(String separador, String name) {
 		if (name.contains(separador)) {
-//				asd = name.split(separador);
-//				name = asd[1];
-//				for (int i = 2; i < asd.length; i++) {
-//					name += asd[i];
-//				}
+			String [] asd = name.split(separador);
+			name = asd[1];
+			for (int i = 2; i < asd.length; i++) {
+				name += asd[i];
+			}
 		}
 
 		return name;
