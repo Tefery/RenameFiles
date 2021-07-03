@@ -52,6 +52,8 @@ public class Main {
 			name = file.getName();
 			name = name.replace(KBPS, "");
 			name = name.replace(KBPS2, "");
+			name = name.replace("Napalm Records", "");
+			name = name.replaceAll("\\+? ?[L|l]yrics", "");
 			name = name.replaceAll("\\(.*\\)", "");
 			name = name.replaceAll("\\[.*\\]", "");
 			name = name.replace("HD", "");
