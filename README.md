@@ -1,1 +1,1 @@
-# RenameSmashDLCs
+# RenameFiles
